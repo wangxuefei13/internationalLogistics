@@ -19,4 +19,12 @@ public class Account {
     public void setAccount_name(String account_name) {
         this.account_name = account_name;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "account_id=" + account_id +
+                ", account_name='" + account_name + '\'' +
+                '}';
+    }
 }
