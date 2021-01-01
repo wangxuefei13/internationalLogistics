@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.internationalLogistics.mapper.OperationPricePOMapper">
+  <resultMap id="BaseResultMap" type="com.internationalLogistics.entity.po.OperationPricePO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_code" jdbcType="VARCHAR" property="productCode" />
+    <result column="depart_name" jdbcType="VARCHAR" property="departName" />
+    <result column="destination_name" jdbcType="VARCHAR" property="destinationName" />
+    <result column="imports_exports" jdbcType="VARCHAR" property="importsExports" />
+    <result column="transportation_type" jdbcType="VARCHAR" property="transportationType" />
+    <result column="send_time" jdbcType="DATE" property="sendTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="quoted_price_person" jdbcType="VARCHAR" property="quotedPricePerson" />
+    <result column="quoted_price_time" jdbcType="DATE" property="quotedPriceTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="enquiry_order_num" jdbcType="VARCHAR" property="enquiryOrderNum" />
+    <result column="original_price" jdbcType="INTEGER" property="originalPrice" />
+    <result column="change_price" jdbcType="INTEGER" property="changePrice" />
+    <result column="dispose_person" jdbcType="VARCHAR" property="disposePerson" />
+    <result column="t_company_id" jdbcType="VARCHAR" property="tCompanyId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, product_name, product_code, depart_name, destination_name, imports_exports, transportation_type, 
+    send_time, remark, quoted_price_person, quoted_price_time, status, enquiry_order_num, 
+    original_price, change_price, dispose_person, t_company_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_operation_price
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_operation_price
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.internationalLogistics.entity.po.OperationPricePO">
+    insert into t_operation_price (id, product_name, product_code, 
+      depart_name, destination_name, imports_exports, 
+      transportation_type, send_time, remark, 
+      quoted_price_person, quoted_price_time, status, 
+      enquiry_order_num, original_price, change_price, 
+      dispose_person, t_company_id)
+    values (#{id,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, 
+      #{departName,jdbcType=VARCHAR}, #{destinationName,jdbcType=VARCHAR}, #{importsExports,jdbcType=VARCHAR}, 
+      #{transportationType,jdbcType=VARCHAR}, #{sendTime,jdbcType=DATE}, #{remark,jdbcType=VARCHAR}, 
+      #{quotedPricePerson,jdbcType=VARCHAR}, #{quotedPriceTime,jdbcType=DATE}, #{status,jdbcType=INTEGER}, 
+      #{enquiryOrderNum,jdbcType=VARCHAR}, #{originalPrice,jdbcType=INTEGER}, #{changePrice,jdbcType=INTEGER}, 
+      #{disposePerson,jdbcType=VARCHAR}, #{tCompanyId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.internationalLogistics.entity.po.OperationPricePO">
+    insert into t_operation_price
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="productCode != null">
+        product_code,
+      </if>
+      <if test="departName != null">
+        depart_name,
+      </if>
+      <if test="destinationName != null">
+        destination_name,
+      </if>
+      <if test="importsExports != null">
+        imports_exports,
+      </if>
+      <if test="transportationType != null">
+        transportation_type,
+      </if>
+      <if test="sendTime != null">
+        send_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="quotedPricePerson != null">
+        quoted_price_person,
+      </if>
+      <if test="quotedPriceTime != null">
+        quoted_price_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="enquiryOrderNum != null">
+        enquiry_order_num,
+      </if>
+      <if test="originalPrice != null">
+        original_price,
+      </if>
+      <if test="changePrice != null">
+        change_price,
+      </if>
+      <if test="disposePerson != null">
+        dispose_person,
+      </if>
+      <if test="tCompanyId != null">
+        t_company_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="departName != null">
+        #{departName,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationName != null">
+        #{destinationName,jdbcType=VARCHAR},
+      </if>
+      <if test="importsExports != null">
+        #{importsExports,jdbcType=VARCHAR},
+      </if>
+      <if test="transportationType != null">
+        #{transportationType,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedPricePerson != null">
+        #{quotedPricePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedPriceTime != null">
+        #{quotedPriceTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="enquiryOrderNum != null">
+        #{enquiryOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        #{originalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="changePrice != null">
+        #{changePrice,jdbcType=INTEGER},
+      </if>
+      <if test="disposePerson != null">
+        #{disposePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tCompanyId != null">
+        #{tCompanyId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.internationalLogistics.entity.po.OperationPricePO">
+    update t_operation_price
+    <set>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="departName != null">
+        depart_name = #{departName,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationName != null">
+        destination_name = #{destinationName,jdbcType=VARCHAR},
+      </if>
+      <if test="importsExports != null">
+        imports_exports = #{importsExports,jdbcType=VARCHAR},
+      </if>
+      <if test="transportationType != null">
+        transportation_type = #{transportationType,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        send_time = #{sendTime,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedPricePerson != null">
+        quoted_price_person = #{quotedPricePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedPriceTime != null">
+        quoted_price_time = #{quotedPriceTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="enquiryOrderNum != null">
+        enquiry_order_num = #{enquiryOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        original_price = #{originalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="changePrice != null">
+        change_price = #{changePrice,jdbcType=INTEGER},
+      </if>
+      <if test="disposePerson != null">
+        dispose_person = #{disposePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tCompanyId != null">
+        t_company_id = #{tCompanyId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.internationalLogistics.entity.po.OperationPricePO">
+    update t_operation_price
+    set product_name = #{productName,jdbcType=VARCHAR},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      depart_name = #{departName,jdbcType=VARCHAR},
+      destination_name = #{destinationName,jdbcType=VARCHAR},
+      imports_exports = #{importsExports,jdbcType=VARCHAR},
+      transportation_type = #{transportationType,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=DATE},
+      remark = #{remark,jdbcType=VARCHAR},
+      quoted_price_person = #{quotedPricePerson,jdbcType=VARCHAR},
+      quoted_price_time = #{quotedPriceTime,jdbcType=DATE},
+      status = #{status,jdbcType=INTEGER},
+      enquiry_order_num = #{enquiryOrderNum,jdbcType=VARCHAR},
+      original_price = #{originalPrice,jdbcType=INTEGER},
+      change_price = #{changePrice,jdbcType=INTEGER},
+      dispose_person = #{disposePerson,jdbcType=VARCHAR},
+      t_company_id = #{tCompanyId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.internationalLogistics.entity.po.OperationPricePO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="product_code" jdbcType="VARCHAR" property="productCode" />
+    <result column="depart_name" jdbcType="VARCHAR" property="departName" />
+    <result column="destination_name" jdbcType="VARCHAR" property="destinationName" />
+    <result column="imports_exports" jdbcType="VARCHAR" property="importsExports" />
+    <result column="transportation_type" jdbcType="VARCHAR" property="transportationType" />
+    <result column="send_time" jdbcType="DATE" property="sendTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="quoted_price_person" jdbcType="VARCHAR" property="quotedPricePerson" />
+    <result column="quoted_price_time" jdbcType="DATE" property="quotedPriceTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="enquiry_order_num" jdbcType="VARCHAR" property="enquiryOrderNum" />
+    <result column="original_price" jdbcType="INTEGER" property="originalPrice" />
+    <result column="change_price" jdbcType="INTEGER" property="changePrice" />
+    <result column="dispose_person" jdbcType="VARCHAR" property="disposePerson" />
+    <result column="t_company_id" jdbcType="VARCHAR" property="tCompanyId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, product_name, product_code, depart_name, destination_name, imports_exports, transportation_type, 
+    send_time, remark, quoted_price_person, quoted_price_time, status, enquiry_order_num, 
+    original_price, change_price, dispose_person, t_company_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_operation_price
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_operation_price
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.internationalLogistics.entity.po.OperationPricePO">
+    insert into t_operation_price (id, product_name, product_code, 
+      depart_name, destination_name, imports_exports, 
+      transportation_type, send_time, remark, 
+      quoted_price_person, quoted_price_time, status, 
+      enquiry_order_num, original_price, change_price, 
+      dispose_person, t_company_id)
+    values (#{id,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, #{productCode,jdbcType=VARCHAR}, 
+      #{departName,jdbcType=VARCHAR}, #{destinationName,jdbcType=VARCHAR}, #{importsExports,jdbcType=VARCHAR}, 
+      #{transportationType,jdbcType=VARCHAR}, #{sendTime,jdbcType=DATE}, #{remark,jdbcType=VARCHAR}, 
+      #{quotedPricePerson,jdbcType=VARCHAR}, #{quotedPriceTime,jdbcType=DATE}, #{status,jdbcType=INTEGER}, 
+      #{enquiryOrderNum,jdbcType=VARCHAR}, #{originalPrice,jdbcType=INTEGER}, #{changePrice,jdbcType=INTEGER}, 
+      #{disposePerson,jdbcType=VARCHAR}, #{tCompanyId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.internationalLogistics.entity.po.OperationPricePO">
+    insert into t_operation_price
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="productCode != null">
+        product_code,
+      </if>
+      <if test="departName != null">
+        depart_name,
+      </if>
+      <if test="destinationName != null">
+        destination_name,
+      </if>
+      <if test="importsExports != null">
+        imports_exports,
+      </if>
+      <if test="transportationType != null">
+        transportation_type,
+      </if>
+      <if test="sendTime != null">
+        send_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="quotedPricePerson != null">
+        quoted_price_person,
+      </if>
+      <if test="quotedPriceTime != null">
+        quoted_price_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="enquiryOrderNum != null">
+        enquiry_order_num,
+      </if>
+      <if test="originalPrice != null">
+        original_price,
+      </if>
+      <if test="changePrice != null">
+        change_price,
+      </if>
+      <if test="disposePerson != null">
+        dispose_person,
+      </if>
+      <if test="tCompanyId != null">
+        t_company_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="departName != null">
+        #{departName,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationName != null">
+        #{destinationName,jdbcType=VARCHAR},
+      </if>
+      <if test="importsExports != null">
+        #{importsExports,jdbcType=VARCHAR},
+      </if>
+      <if test="transportationType != null">
+        #{transportationType,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        #{sendTime,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedPricePerson != null">
+        #{quotedPricePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedPriceTime != null">
+        #{quotedPriceTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="enquiryOrderNum != null">
+        #{enquiryOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        #{originalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="changePrice != null">
+        #{changePrice,jdbcType=INTEGER},
+      </if>
+      <if test="disposePerson != null">
+        #{disposePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tCompanyId != null">
+        #{tCompanyId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.internationalLogistics.entity.po.OperationPricePO">
+    update t_operation_price
+    <set>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="productCode != null">
+        product_code = #{productCode,jdbcType=VARCHAR},
+      </if>
+      <if test="departName != null">
+        depart_name = #{departName,jdbcType=VARCHAR},
+      </if>
+      <if test="destinationName != null">
+        destination_name = #{destinationName,jdbcType=VARCHAR},
+      </if>
+      <if test="importsExports != null">
+        imports_exports = #{importsExports,jdbcType=VARCHAR},
+      </if>
+      <if test="transportationType != null">
+        transportation_type = #{transportationType,jdbcType=VARCHAR},
+      </if>
+      <if test="sendTime != null">
+        send_time = #{sendTime,jdbcType=DATE},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedPricePerson != null">
+        quoted_price_person = #{quotedPricePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="quotedPriceTime != null">
+        quoted_price_time = #{quotedPriceTime,jdbcType=DATE},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="enquiryOrderNum != null">
+        enquiry_order_num = #{enquiryOrderNum,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPrice != null">
+        original_price = #{originalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="changePrice != null">
+        change_price = #{changePrice,jdbcType=INTEGER},
+      </if>
+      <if test="disposePerson != null">
+        dispose_person = #{disposePerson,jdbcType=VARCHAR},
+      </if>
+      <if test="tCompanyId != null">
+        t_company_id = #{tCompanyId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.internationalLogistics.entity.po.OperationPricePO">
+    update t_operation_price
+    set product_name = #{productName,jdbcType=VARCHAR},
+      product_code = #{productCode,jdbcType=VARCHAR},
+      depart_name = #{departName,jdbcType=VARCHAR},
+      destination_name = #{destinationName,jdbcType=VARCHAR},
+      imports_exports = #{importsExports,jdbcType=VARCHAR},
+      transportation_type = #{transportationType,jdbcType=VARCHAR},
+      send_time = #{sendTime,jdbcType=DATE},
+      remark = #{remark,jdbcType=VARCHAR},
+      quoted_price_person = #{quotedPricePerson,jdbcType=VARCHAR},
+      quoted_price_time = #{quotedPriceTime,jdbcType=DATE},
+      status = #{status,jdbcType=INTEGER},
+      enquiry_order_num = #{enquiryOrderNum,jdbcType=VARCHAR},
+      original_price = #{originalPrice,jdbcType=INTEGER},
+      change_price = #{changePrice,jdbcType=INTEGER},
+      dispose_person = #{disposePerson,jdbcType=VARCHAR},
+      t_company_id = #{tCompanyId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
