@@ -7,9 +7,6 @@
   <groupId>org.bgs</groupId>
   <artifactId>internationalLogistics</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <modules>
-      <module>mowxf</module>
-  </modules>
   <packaging>pom</packaging>
 
   <name>crm_project Maven Webapp</name>
