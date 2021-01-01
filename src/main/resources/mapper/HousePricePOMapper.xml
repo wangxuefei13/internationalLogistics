@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.internationalLogistics.mapper.HousePricePOMapper" >
-  <resultMap id="BaseResultMap" type="com.internationalLogistics.entity.po.HousePricePO" >
+<mapper namespace="com.crm.mapper.HousePricePOMapper" >
+  <resultMap id="BaseResultMap" type="com.crm.entity.po.HousePricePO" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="product_name" property="productName" jdbcType="VARCHAR" />
     <result column="product_code" property="productCode" jdbcType="VARCHAR" />
@@ -36,7 +36,7 @@
     delete from t_house_price
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.internationalLogistics.entity.po.HousePricePO" >
+  <insert id="insert" parameterType="com.crm.entity.po.HousePricePO" >
     insert into t_house_price (id, product_name, product_code, 
       depart_name, destination_name, inspection, 
       imports_exports, transportation_type, send_time, 
@@ -52,7 +52,7 @@
       #{changePrice,jdbcType=INTEGER}, #{disposePerson,jdbcType=VARCHAR}, #{houseEnquiryId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.internationalLogistics.entity.po.HousePricePO" >
+  <insert id="insertSelective" parameterType="com.crm.entity.po.HousePricePO" >
     insert into t_house_price
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -167,7 +167,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.internationalLogistics.entity.po.HousePricePO" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.crm.entity.po.HousePricePO" >
     update t_house_price
     <set >
       <if test="productName != null" >
@@ -224,7 +224,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.internationalLogistics.entity.po.HousePricePO" >
+  <update id="updateByPrimaryKey" parameterType="com.crm.entity.po.HousePricePO" >
     update t_house_price
     set product_name = #{productName,jdbcType=VARCHAR},
       product_code = #{productCode,jdbcType=VARCHAR},

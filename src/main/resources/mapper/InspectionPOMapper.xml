@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.internationalLogistics.mapper.InspectionPOMapper" >
-  <resultMap id="BaseResultMap" type="com.internationalLogistics.entity.po.InspectionPO" >
+<mapper namespace="com.crm.mapper.InspectionPOMapper" >
+  <resultMap id="BaseResultMap" type="com.crm.entity.po.InspectionPO" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="domesic_code" property="domesicCode" jdbcType="VARCHAR" />
     <result column="international_code" property="internationalCode" jdbcType="VARCHAR" />
@@ -20,13 +20,13 @@
     delete from t_inspection
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.internationalLogistics.entity.po.InspectionPO" >
+  <insert id="insert" parameterType="com.crm.entity.po.InspectionPO" >
     insert into t_inspection (id, domesic_code, international_code, 
       port_name)
     values (#{id,jdbcType=VARCHAR}, #{domesicCode,jdbcType=VARCHAR}, #{internationalCode,jdbcType=VARCHAR}, 
       #{portName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.internationalLogistics.entity.po.InspectionPO" >
+  <insert id="insertSelective" parameterType="com.crm.entity.po.InspectionPO" >
     insert into t_inspection
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.internationalLogistics.entity.po.InspectionPO" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.crm.entity.po.InspectionPO" >
     update t_inspection
     <set >
       <if test="domesicCode != null" >
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.internationalLogistics.entity.po.InspectionPO" >
+  <update id="updateByPrimaryKey" parameterType="com.crm.entity.po.InspectionPO" >
     update t_inspection
     set domesic_code = #{domesicCode,jdbcType=VARCHAR},
       international_code = #{internationalCode,jdbcType=VARCHAR},

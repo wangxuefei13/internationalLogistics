@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.internationalLogistics.mapper.CompanyPOMapper" >
-  <resultMap id="BaseResultMap" type="com.internationalLogistics.entity.po.CompanyPO" >
+<mapper namespace="com.crm.mapper.CompanyPOMapper" >
+  <resultMap id="BaseResultMap" type="com.crm.entity.po.CompanyPO" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="company_name" property="companyName" jdbcType="VARCHAR" />
     <result column="company_phone" property="companyPhone" jdbcType="VARCHAR" />
@@ -22,7 +22,7 @@
     delete from t_company
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.internationalLogistics.entity.po.CompanyPO" >
+  <insert id="insert" parameterType="com.crm.entity.po.CompanyPO" >
     insert into t_company (id, company_name, company_phone, 
       status, company_address, territory_id
       )
@@ -30,7 +30,7 @@
       #{status,jdbcType=VARCHAR}, #{companyAddress,jdbcType=VARCHAR}, #{territoryId,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.internationalLogistics.entity.po.CompanyPO" >
+  <insert id="insertSelective" parameterType="com.crm.entity.po.CompanyPO" >
     insert into t_company
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.internationalLogistics.entity.po.CompanyPO" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.crm.entity.po.CompanyPO" >
     update t_company
     <set >
       <if test="companyName != null" >
@@ -94,7 +94,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.internationalLogistics.entity.po.CompanyPO" >
+  <update id="updateByPrimaryKey" parameterType="com.crm.entity.po.CompanyPO" >
     update t_company
     set company_name = #{companyName,jdbcType=VARCHAR},
       company_phone = #{companyPhone,jdbcType=VARCHAR},

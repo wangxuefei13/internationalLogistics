@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.internationalLogistics.mapper.OperationPricePOMapper" >
-  <resultMap id="BaseResultMap" type="com.internationalLogistics.entity.po.OperationPricePO" >
+<mapper namespace="com.crm.mapper.OperationPricePOMapper" >
+  <resultMap id="BaseResultMap" type="com.crm.entity.po.OperationPricePO" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="product_name" property="productName" jdbcType="VARCHAR" />
     <result column="product_code" property="productCode" jdbcType="VARCHAR" />
@@ -35,7 +35,7 @@
     delete from t_operation_price
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.internationalLogistics.entity.po.OperationPricePO" >
+  <insert id="insert" parameterType="com.crm.entity.po.OperationPricePO" >
     insert into t_operation_price (id, product_name, product_code, 
       depart_name, destination_name, imports_exports, 
       transportation_type, send_time, remark, 
@@ -49,7 +49,7 @@
       #{enquiryOrderNum,jdbcType=VARCHAR}, #{originalPrice,jdbcType=INTEGER}, #{changePrice,jdbcType=INTEGER}, 
       #{disposePerson,jdbcType=VARCHAR}, #{operationEnquiryId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.internationalLogistics.entity.po.OperationPricePO" >
+  <insert id="insertSelective" parameterType="com.crm.entity.po.OperationPricePO" >
     insert into t_operation_price
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -158,7 +158,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.internationalLogistics.entity.po.OperationPricePO" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.crm.entity.po.OperationPricePO" >
     update t_operation_price
     <set >
       <if test="productName != null" >
@@ -212,7 +212,7 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.internationalLogistics.entity.po.OperationPricePO" >
+  <update id="updateByPrimaryKey" parameterType="com.crm.entity.po.OperationPricePO" >
     update t_operation_price
     set product_name = #{productName,jdbcType=VARCHAR},
       product_code = #{productCode,jdbcType=VARCHAR},
