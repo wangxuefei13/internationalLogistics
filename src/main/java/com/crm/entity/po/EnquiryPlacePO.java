@@ -2,40 +2,45 @@ package com.crm.entity.po;
 
 import java.util.Date;
 
+/**
+ * 询价单
+ *          0 ： 不需要用户填写，自动生成
+ *          1 :  需要用户填写
+ */
 public class EnquiryPlacePO {
-    private String id;
+    private String id;                      //  uuid            0
 
-    private String productName;
+    private String productName;             //  品名            1
 
-    private String productCode;
+    private String productCode;             //  商品编码         0
 
-    private String departName;
+    private String departName;              //  发站名           1
 
-    private String destinationName;
+    private String destinationName;         //  到站名           1
 
-    private String inspection;
+    private String inspection;              //  口岸             0
 
-    private String importsExports;
+    private String importsExports;          //  陆运方向         1
 
-    private String transportationType;
+    private String transportationType;      //  运输类型         1
 
-    private Date sendTime;
+    private Date sendTime;                  //  发运时间         0
 
-    private String remark;
+    private String remark;                  //  备注             1
 
-    private String userName;
+    private String userName;                //  操作者           0
 
-    private Date enquiryTime;
+    private Date enquiryTime;               //  询价时间         0
 
-    private Integer status;
+    private Integer status;                 //  状态             0
 
-    private Integer enquiryOrderNum;
+    private Integer enquiryOrderNum;        //  询单号           0
 
-    private Integer originalPrice;
+    private Integer originalPrice;          //  原始价格         0
 
-    private Integer changePrice;
+    private Integer changePrice;            //  变动价格         0
 
-    private String transportationId;
+    private String transportationId;        //  运输表主键       0
 
     public String getId() {
         return id;
