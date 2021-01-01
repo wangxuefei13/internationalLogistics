@@ -17,9 +17,6 @@
 	<title>Title</title>
 </head>
 <body>
-<%--	<script>--%>
-<%--		window.location.href="login.html";--%>
-<%--	</script>--%>
-<a href="personList">哈哈哈</a>
+	<a href="person">哈哈哈</a>
 </body>
 </html>

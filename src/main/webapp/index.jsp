@@ -10,16 +10,12 @@
 <%
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
 %>
-
 <html>
 <head>
 	<base href="<%=basePath%>">
 	<title>Title</title>
 </head>
 <body>
-<%--	<script>--%>
-<%--		window.location.href="login.html";--%>
-<%--	</script>--%>
-<a href="personList">哈哈哈</a>
+	
 </body>
 </html>
