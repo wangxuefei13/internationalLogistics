@@ -1,8 +1,9 @@
 package com.crm.entity.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class EntrustPO {
+public class EntrustPO implements Serializable {
     private String id;
 
     private String productName;

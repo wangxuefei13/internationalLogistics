@@ -16,6 +16,6 @@
 	<title>Title</title>
 </head>
 <body>
-	
+	<a href="test">注册</a>
 </body>
 </html>

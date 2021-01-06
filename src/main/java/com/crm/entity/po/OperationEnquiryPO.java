@@ -1,9 +1,10 @@
 package com.crm.entity.po;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class OperationEnquiryPO {
+public class OperationEnquiryPO implements Serializable {
     private String id;
 
     private String productName;

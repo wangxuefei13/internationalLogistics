@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.crm.mapper.EnquiryPlacePOMapper" >
+<mapper namespace="com.crm.dao.EnquiryPlacePOMapper" >
   <resultMap id="BaseResultMap" type="com.crm.entity.po.EnquiryPlacePO" >
     <id column="id" property="id" jdbcType="VARCHAR" />
     <result column="product_name" property="productName" jdbcType="VARCHAR" />
@@ -232,4 +232,52 @@
       transportation_id = #{transportationId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+<!--  通过传入条件查询当前用户询价单信息-->
+  <select id="EnquirySelectAll" resultMap="BaseResultMap">
+    select * from t_enquiry_place
+    <where>
+      <if test="enquiryPlacePO.productName!=null and enquiryPlacePO.productName =''">
+        product_name like '%' #{enquiryPlacePO.productName} '%'
+      </if>
+      <if test="enquiryPlacePO.productCode!=null and enquiryPlacePO.productCode!=''">
+        and product_code like '%' #{enquiryPlacePO.productCode} '%'
+      </if>
+      <if test="enquiryPlacePO.departName!=null and enquiryPlacePO.departName!=''">
+        and depart_name like '%' #{enquiryPlacePO.departName} '%'
+      </if>
+      <if test="enquiryPlacePO.destinationName!=null and enquiryPlacePO.destinationName!=''">
+        and destination_name like '%' #{enquiryPlacePO.destinationName} '%'
+      </if>
+      <if test="enquiryPlacePO.inspection!=null and enquiryPlacePO.inspection!=''">
+        and inspection like '%' #{enquiryPlacePO.inspection} '%'
+      </if>
+      <if test="enquiryPlacePO.importsExports!=null and enquiryPlacePO.importsExports!=''">
+        and imports_exports like '%' #{enquiryPlacePO.importsExports} '%'
+      </if>
+      <if test="enquiryPlacePO.transportationType!=null and enquiryPlacePO.transportationType!=''">
+        and transportation_type like '%' #{enquiryPlacePO.transportationType} '%'
+      </if>
+      <if test="oneTime!=null and oneTime!=''">
+        and  send_time &gt; #{oneTime}
+      </if>
+      <if test="towTime!=null and towTime!=''">
+        and  send_time &lt; #{towTime}
+      </if>
+      <if test="enquiryPlacePO.userName!=null and enquiryPlacePO.userName!=''">
+        and user_name = #{enquiryPlacePO.userName}
+      </if>
+      <if test="enquiryPlacePO.enquiryTime!=null and enquiryPlacePO.enquiryTime!=''">
+        and enquiry_time like '%' #{enquiryPlacePO.enquiryTime} '%'
+      </if>
+      <if test="enquiryPlacePO.enquiryOrderNum!=null and enquiryPlacePO.enquiryOrderNum!=''">
+        and enquiry_order_num like '%' #{enquiryPlacePO.enquiryOrderNum} '%'
+      </if>
+      <if test="enquiryPlacePO.originalPrice!=null and enquiryPlacePO.originalPrice!=''">
+        and original_price like '%' #{enquiryPlacePO.originalPrice} '%'
+      </if>
+      <if test="enquiryPlacePO.changePrice!=null and enquiryPlacePO.changePrice!=''">
+        and change_price like '%' #{enquiryPlacePO.changePrice} '%'
+      </if>
+    </where>
+  </select>
 </mapper>

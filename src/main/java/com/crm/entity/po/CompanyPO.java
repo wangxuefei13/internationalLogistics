@@ -1,6 +1,8 @@
 package com.crm.entity.po;
 
-public class CompanyPO {
+import java.io.Serializable;
+
+public class CompanyPO implements Serializable {
     private String id;
 
     private String companyName;

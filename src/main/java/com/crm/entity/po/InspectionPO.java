@@ -1,6 +1,8 @@
 package com.crm.entity.po;
 
-public class InspectionPO {
+import java.io.Serializable;
+
+public class InspectionPO implements Serializable {
     private String id;
 
     private String domesicCode;

@@ -6,6 +6,7 @@
 		<package name="com.crm.entity" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="mapper/UserMapper.xml" />
+		<mapper resource="mapper/PersonPOMapper.xml" />
+		<mapper resource="mapper/EnquiryPlacePOMapper.xml" />
 	</mappers>
 </configuration>

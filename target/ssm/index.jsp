@@ -10,13 +10,12 @@
 <%
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() + "/";
 %>
-
 <html>
 <head>
 	<base href="<%=basePath%>">
 	<title>Title</title>
 </head>
 <body>
-	<a href="person">哈哈哈</a>
+	<a href="test">注册</a>
 </body>
 </html>

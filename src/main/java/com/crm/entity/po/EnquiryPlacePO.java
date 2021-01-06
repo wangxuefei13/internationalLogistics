@@ -1,5 +1,6 @@
 package com.crm.entity.po;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date;
  *          0 ： 不需要用户填写，自动生成
  *          1 :  需要用户填写
  */
-public class EnquiryPlacePO {
+public class EnquiryPlacePO implements Serializable {
     private String id;                      //  uuid            0
 
     private String productName;             //  品名            1
@@ -105,7 +106,6 @@ public class EnquiryPlacePO {
     public void setTransportationType(String transportationType) {
         this.transportationType = transportationType == null ? null : transportationType.trim();
     }
-
     public Date getSendTime() {
         return sendTime;
     }
