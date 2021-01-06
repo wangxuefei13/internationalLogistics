@@ -62,10 +62,10 @@ public class LocalSubsidiaryController {
         personPO.setEntryTime(new Date());
         personPO.setStruts(1);
         R r = personService.savePerson(personPO);
+        model.addAttribute("R",r);
         if(r.getSuccess()){
             return "login";
         }
-        model.addAttribute("R",r);
         return "register";
     }
 

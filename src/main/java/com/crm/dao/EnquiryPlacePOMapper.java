@@ -9,6 +9,7 @@ import java.util.Map;
 @Repository
 @Mapper
 public interface EnquiryPlacePOMapper {
+
     int deleteByPrimaryKey(String id);
 
     int insert(EnquiryPlacePO record);
@@ -20,5 +21,6 @@ public interface EnquiryPlacePOMapper {
     int updateByPrimaryKeySelective(EnquiryPlacePO record);
 
     int updateByPrimaryKey(EnquiryPlacePO record);
+
     List<EnquiryPlacePO> EnquirySelectAll(Map<String, Object> map);
 }

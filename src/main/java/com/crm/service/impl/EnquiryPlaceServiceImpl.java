@@ -31,4 +31,19 @@ public class EnquiryPlaceServiceImpl implements EnquiryPlaceService {
         }
         return R.ok();
     }
+
+    /**
+     *  根据id查询询价单，并修改状态为询价
+     * @param id
+     * @return
+     */
+    @Override
+    public R selectByPrimaryKeyAndUpdateStatus(String id) {
+        EnquiryPlacePO enquiryPlacePO = enquiryPlacePOMapper.selectByPrimaryKey(id);
+        if (null != enquiryPlacePO){
+            enquiryPlacePO.setStatus(0);
+            return enquiryPlacePOMapper.updateByPrimaryKey(enquiryPlacePO)==1?R.ok():R.error();
+        }
+        return R.error();
+    }
 }
